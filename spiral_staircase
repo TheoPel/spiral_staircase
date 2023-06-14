@@ -1,0 +1,9 @@
+import maya.cmds as cmds
+
+for x in range (0,100):
+    cube = cmds.polyCube( ch=False, name = 'step' + str(x))
+    cmds.setAttr(cube[0] + '.scaleY' , 5)
+    cmds.setAttr(cube[0] + '.scaleZ' , 0.4)
+    cmds.move(0, -2.5, 0, cube[0] + '.scalePivot',cube[0] + '.rotatePivot', absolute=True)
+    cmds.setAttr(cube[0] + '.tz', x)
+    cmds.setAttr(cube[0] + '.rz', 15*x)
